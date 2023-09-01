@@ -7,7 +7,7 @@ public class PlayerGameLogic : MonoBehaviour
 {
     private static Card cardOne;
     private static Card cardTwo;
-    public Card[] playerCards = { cardOne, cardTwo };
+    public Card[] playerCards = new Card[2];
     
     
     // Start is called before the first frame update
@@ -15,8 +15,11 @@ public class PlayerGameLogic : MonoBehaviour
     {
         cardOne = CardDistributor.getCard();
         cardTwo = CardDistributor.getCard();
-        
-        Debug.Log("Player cards: " + playerCards.ToCommaSeparatedString());
+        playerCards[0] = cardOne;
+        playerCards[1] = cardTwo;
+
+        //debug player cards to console
+        //Debug.Log($"{gameObject.name} cards: Card One: " + cardOne.getCardNum() + " " +  cardOne.getSuitString() + " Card 2: " + cardTwo.getCardNum() + " " + cardTwo.getSuitString());
     }
 
     // Update is called once per frame

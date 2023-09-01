@@ -32,13 +32,7 @@ public class CardMap : MonoBehaviour
             ;
             i++;
         }
-        Debug.Log(cardMap.ToCommaSeparatedString());
-
-        for (int j = 1; j < cardMap.Count + 1; j++)
-        {
-            Debug.Log(cardMap[j].getSuitString() + "  " + cardMap[j].getCardNum());
-        }
-
+        
     }
 
 
@@ -67,4 +61,6 @@ public class CardMap : MonoBehaviour
 
         return Int32.Parse(numString.Substring(numString.Length - 2));
     }
+
+    
 }

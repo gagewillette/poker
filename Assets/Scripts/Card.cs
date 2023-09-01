@@ -50,4 +50,9 @@ public class Card
 
         throw new ApplicationException();
     }
+    
+    public string getNumString()
+    {
+        return this.cardNum < 10 ? "0" + this.cardNum.ToString() : this.cardNum.ToString();
+    }
 }
