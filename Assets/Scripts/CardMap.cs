@@ -14,6 +14,7 @@ public class CardMap : MonoBehaviour
     {
         string[] bruh = Directory.GetFiles("Assets/Playing Cards/Resource/Prefab/BackColor_Black");
         
+        
         int i = 0;
         foreach (string cur in bruh)
         {
