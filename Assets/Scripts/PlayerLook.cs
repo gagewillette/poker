@@ -7,6 +7,7 @@ public class PlayerLook : MonoBehaviour
     public float sensX;
     public float sensY;
 
+    [HideInInspector]
     public Transform orientation;
 
     private float xRotation;
@@ -25,9 +26,9 @@ public class PlayerLook : MonoBehaviour
 
         yRotation += mouseX;
 
-        xRotation += mouseY;
+        xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
-        yRotation = Mathf.Clamp(yRotation, -120, 120);
+        //yRotation = Mathf.Clamp(yRotation, -360, -90);
         
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
