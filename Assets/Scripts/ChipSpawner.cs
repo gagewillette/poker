@@ -6,29 +6,29 @@ using UnityEngine;
 
 public class ChipSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject blackChip;
-    [SerializeField]
-    private GameObject redChip;
-    [SerializeField]
-    private GameObject blueChip;
-    [SerializeField]
-    private GameObject whiteChip;
-    [SerializeField]
-    private GameObject greenChip;
-    
+    [SerializeField] private GameObject blackChip;
+    [SerializeField] private GameObject redChip;
+    [SerializeField] private GameObject blueChip;
+    [SerializeField] private GameObject whiteChip;
+    [SerializeField] private GameObject greenChip;
+
     private Transform[] children;
+
+    [SerializeField] 
+    private bool useChipPhysics = false;
     
+    private GameObject prevSpawn;
+
     private void Start()
     {
         children = getChildren(gameObject.transform);
-        
+
         foreach (Transform child in children)
         {
-            SpawnChips(greenChip, 100, child);
+            SpawnChips(greenChip, 20, child);
         }
     }
-
+    
     private Transform[] getChildren(Transform parent)
     {
         Transform[] children = new Transform[parent.transform.childCount];
@@ -40,16 +40,18 @@ public class ChipSpawner : MonoBehaviour
 
         return children;
     }
-
+    
     private void SpawnChips(GameObject chipSet, int chipCount, Transform trans)
     {
         for (int i = 0; i < chipCount; i++)
         {
             float bufferHeight = i * 0.007f;
-            GameObject prevSpawn = Instantiate(chipSet,
+            prevSpawn = Instantiate(chipSet,
                 new Vector3(trans.position.x, trans.position.y + bufferHeight, trans.position.z),
                 trans.rotation);
             prevSpawn.transform.SetParent(trans, true);
+            Rigidbody rb = prevSpawn.GetComponent<Rigidbody>();
+            rb.isKinematic = !useChipPhysics;                             
         }
     }
 }
