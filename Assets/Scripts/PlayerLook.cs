@@ -6,8 +6,7 @@ public class PlayerLook : MonoBehaviour
 {
     public float sensX;
     public float sensY;
-
-    [HideInInspector]
+    
     public Transform orientation;
 
     private float xRotation;
