@@ -9,12 +9,12 @@ public class PublicCardSpawner : MonoBehaviour
     private Card turn;
     private Card river;
 
-    private Transform[] cardLocations;
+    private List<Transform> cardLocations;
 
-    private Object[] cardPrefabs = new Object[5];
+    private GameObject[] cardPrefabs = new GameObject[5];
 
     private string path = "Prefab/Black_PlayingCards_";
-    private string endPath = "_00";
+    private string endPath = "_00.prefab";
     
     
     //TEST VARIABLES
@@ -26,17 +26,21 @@ public class PublicCardSpawner : MonoBehaviour
     
     void Start()
     {
+
         cardLocations  = GameObject.Find("PublicCards").GetComponent<CardPositions>().cardPositions;
         
-        
-        for (int i = 0; i < 3; i++)
+        int i = 0;
+        foreach (var cur in flop)
         {
             flop[i] = CardDistributor.getCard();
+            i++;
         }
 
         turn = CardDistributor.getCard();
         river = CardDistributor.getCard();
 
+        cardPrefabs = getCardPrefabs();
+        
         //DEBUG
         foreach (var cur in flop)
         {
@@ -45,8 +49,7 @@ public class PublicCardSpawner : MonoBehaviour
         Debug.Log(turn.getSuit() + " " + turn.getCardNum());
         Debug.Log(river.getSuit() + " " + river.getCardNum());
         //END DEBUG
-
-        getCardPrefabs();
+        ;        
         Debug.Log(cardPrefabs.ToCommaSeparatedString());
     }
 
@@ -55,22 +58,26 @@ public class PublicCardSpawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
+            isFlop = true; 
             for (int i = 0; i < 3; i++)
             {
-                Object prevSpawn = Instantiate(cardPrefabs[i], cardLocations[i].position, cardLocations[i].rotation);
+                GameObject prevSpawn = Instantiate(cardPrefabs[i], cardLocations[i].position, cardLocations[i].rotation);
             }
         }
 
     }
 
-    private void getCardPrefabs()
+    private GameObject[] getCardPrefabs()
     {
-        if (!isFlop) return;
-
-        for (int i = 0; i < 3; i++)
+        GameObject[] arr = new GameObject[5];
+        int i = 0;
+        foreach (var cur in cardPrefabs)
         {
-            cardPrefabs[i] = Resources.Load<Object>(path + flop[i].getSuitString() + flop[i].getNumString() + endPath);
+            arr[i] = Resources.Load<GameObject>(path + flop[i].getSuitString() + flop[i].getNumString() + endPath);
+            i++;
         }
+
+        return arr;
     }
 
 }

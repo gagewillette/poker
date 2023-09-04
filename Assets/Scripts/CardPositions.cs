@@ -16,21 +16,15 @@ public class CardPositions : MonoBehaviour
     [SerializeField]
     private Transform Card5Pos;
 
-    public Transform[] cardPositions;
-    
+    public List<Transform> cardPositions;
+
     private void Start()
     {
-        Destroy(Card1Pos.gameObject);
-        Destroy(Card2Pos.gameObject);
-        Destroy(Card3Pos.gameObject);
-        Destroy(Card4Pos.gameObject);
-        Destroy(Card5Pos.gameObject);
-
-        cardPositions[0] = Card1Pos;
-        cardPositions[1] = Card2Pos;
-        cardPositions[2] = Card3Pos;
-        cardPositions[3] = Card4Pos;
-        cardPositions[4] = Card5Pos;
+        cardPositions.Add(Card1Pos);
+        cardPositions.Add(Card2Pos);
+        cardPositions.Add(Card3Pos);
+        cardPositions.Add(Card4Pos);
+        cardPositions.Add(Card5Pos);
     }
 }
 
