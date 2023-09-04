@@ -25,7 +25,6 @@ public class UILogic : MonoBehaviour
         capsuleRend = playerCapsule.GetComponent<Renderer>();
         
         RawImage[] imgComps = gameObject.GetComponentsInChildren<RawImage>();
-        Debug.Log(imgComps.ToCommaSeparatedString());
         cardOneImg = imgComps[1];
         cardTwoImg = imgComps[0];
         
@@ -35,10 +34,7 @@ public class UILogic : MonoBehaviour
 
         string c1Sub = $"{playerCards[0].getSuitString()}{playerCards[0].getNumString()}";
         string c2Sub = $"{playerCards[1].getSuitString()}{playerCards[1].getNumString()}";
-        
-        Debug.Log(c1Sub + "  " + c2Sub);
-        Debug.Log($"{texturePath}/{c1Sub}.png");
-        
+
         cardOneImg.texture = Resources.Load<Texture>($"{c1Sub}");
         cardTwoImg.texture = Resources.Load<Texture>($"{c2Sub}");
     }

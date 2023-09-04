@@ -24,5 +24,6 @@ public class CardDistributor : MonoBehaviour
                 
             } catch (Exception e) {Debug.Log(e.Message + "   !!TRYING AGAIN!!");}
         }
+        
     }
 }
