@@ -2227,6 +2227,7 @@ MonoBehaviour:
   whiteChip: {fileID: 204430026767780912, guid: ea25d12042f6a4df79f7bec6aeaedd0e, type: 3}
   greenChip: {fileID: 8947752950716321821, guid: ca2e6772176c2419e81788981cb7f1f3, type: 3}
   useChipPhysics: 0
+  totalChipCount: 20
 --- !u!4 &881152192
 Transform:
   m_ObjectHideFlags: 0
@@ -2855,6 +2856,7 @@ MonoBehaviour:
   whiteChip: {fileID: 204430026767780912, guid: ea25d12042f6a4df79f7bec6aeaedd0e, type: 3}
   greenChip: {fileID: 8947752950716321821, guid: ca2e6772176c2419e81788981cb7f1f3, type: 3}
   useChipPhysics: 0
+  totalChipCount: 20
 --- !u!4 &1303763373
 Transform:
   m_ObjectHideFlags: 0
@@ -3440,6 +3442,7 @@ MonoBehaviour:
   whiteChip: {fileID: 204430026767780912, guid: ea25d12042f6a4df79f7bec6aeaedd0e, type: 3}
   greenChip: {fileID: 8947752950716321821, guid: ca2e6772176c2419e81788981cb7f1f3, type: 3}
   useChipPhysics: 0
+  totalChipCount: 20
 --- !u!4 &1482014946
 Transform:
   m_ObjectHideFlags: 0
@@ -3515,6 +3518,7 @@ MonoBehaviour:
   whiteChip: {fileID: 204430026767780912, guid: ea25d12042f6a4df79f7bec6aeaedd0e, type: 3}
   greenChip: {fileID: 8947752950716321821, guid: ca2e6772176c2419e81788981cb7f1f3, type: 3}
   useChipPhysics: 0
+  totalChipCount: 20
 --- !u!1 &1536618653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8360359969073080055, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -3849,6 +3853,7 @@ MonoBehaviour:
   whiteChip: {fileID: 204430026767780912, guid: ea25d12042f6a4df79f7bec6aeaedd0e, type: 3}
   greenChip: {fileID: 8947752950716321821, guid: ca2e6772176c2419e81788981cb7f1f3, type: 3}
   useChipPhysics: 0
+  totalChipCount: 20
 --- !u!4 &1898271743
 Transform:
   m_ObjectHideFlags: 0

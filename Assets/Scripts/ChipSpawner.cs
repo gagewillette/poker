@@ -19,13 +19,15 @@ public class ChipSpawner : MonoBehaviour
     
     private GameObject prevSpawn;
 
+    [SerializeField] private int totalChipCount = 50;
+    
     private void Start()
     {
         children = getChildren(gameObject.transform);
 
         foreach (Transform child in children)
         {
-            SpawnChips(greenChip, 20, child);
+            SpawnChips(greenChip, totalChipCount / 5, child);
         }
     }
     
