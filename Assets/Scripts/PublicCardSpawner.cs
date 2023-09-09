@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,11 +13,16 @@ public class PublicCardSpawner : MonoBehaviour
     private Transform[] cardLocations;
 
     private GameObject[] cardPrefabs;
-    private Card[] allCards;
+    public Card[] allCards;
 
     private string path = "Black_PlayingCards_";
     private string endPath = "_00";
 
+    //events
+    public static Action FlopAction;
+    public static Action TurnAction;
+    public static Action RiverAction;
+    
 
     //TEST VARIABLES
     public bool isFlop = false;
@@ -92,7 +98,9 @@ public class PublicCardSpawner : MonoBehaviour
     void SpawnFlop()
     {
         if (isFlop) return;
-
+        
+        FlopAction?.Invoke();
+        
         for (int i = 0; i < 3; i++)
         {
             GameObject prevSpawn = Instantiate(cardPrefabs[i], cardLocations[i].position, cardLocations[i].rotation);
@@ -107,6 +115,8 @@ public class PublicCardSpawner : MonoBehaviour
         if (isTurn) return;
         if (!isFlop) return;
 
+        TurnAction?.Invoke();
+        
         GameObject prevSpawn = Instantiate(cardPrefabs[3], cardLocations[3].position, cardLocations[3].rotation);
         prevSpawn.transform.SetParent(cardLocations[3], true);
         isTurn = true;
@@ -117,6 +127,8 @@ public class PublicCardSpawner : MonoBehaviour
         if (isRiver) return;
         if (!isFlop || !isTurn) return;
 
+        RiverAction.Invoke();
+        
         GameObject prevSpawn = Instantiate(cardPrefabs[4], cardLocations[4].position, cardLocations[4].rotation);
         prevSpawn.transform.SetParent(cardLocations[4], true);
         isRiver = true;

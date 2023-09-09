@@ -12,6 +12,14 @@ public class ChipSpawner : MonoBehaviour
     [SerializeField] private GameObject whiteChip;
     [SerializeField] private GameObject greenChip;
 
+    private readonly float blackChipValue = 5;
+    private readonly float blueChipValue = 10;
+    private readonly float greenChipValue = 20;
+    private readonly float whiteChipValue = 50;
+    private readonly float redChipValue = 100;
+
+    [SerializeField] private GameObject playerObj;
+    
     private Transform[] children;
 
     [SerializeField] 
@@ -19,10 +27,12 @@ public class ChipSpawner : MonoBehaviour
     
     private GameObject prevSpawn;
 
-    [SerializeField] private int totalChipCount = 50;
+    [SerializeField] private float totalChipCount;
     
     private void Start()
     {
+        totalChipCount = playerObj.GetComponent<PlayerGameLogic>().playerBuyIn;
+        
         children = getChildren(gameObject.transform);
 
         foreach (Transform child in children)
@@ -43,7 +53,7 @@ public class ChipSpawner : MonoBehaviour
         return children;
     }
     
-    private void SpawnChips(GameObject chipSet, int chipCount, Transform trans)
+    private void SpawnChips(GameObject chipSet, float chipCount, Transform trans)
     {
         for (int i = 0; i < chipCount; i++)
         {

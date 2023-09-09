@@ -6,8 +6,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class CardDistributor : MonoBehaviour
-{
-    
+{  
     public static Card getCard()
     {
         while (true)
