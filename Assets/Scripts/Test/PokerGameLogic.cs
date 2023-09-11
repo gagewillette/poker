@@ -59,6 +59,13 @@ public class PokerGameLogic : MonoBehaviour
         GameObject bestPlayer = null;
         GameObject bestHand = null;
 
+        foreach (var cur in playerCards)
+        {
+            
+            
+            
+        }
+        
         
         return new GameObject();
     }

@@ -30,6 +30,9 @@ public class PlayerGameLogic : MonoBehaviour
 
     public Card[] getCards() { return playerCards; }
     
+    
+    
+    
     // Update is called once per frame
     void Update()
     {
