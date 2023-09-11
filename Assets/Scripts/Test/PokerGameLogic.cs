@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,6 +9,8 @@ public class PokerGameLogic : MonoBehaviour
     private Dictionary<GameObject, Card[]> playerCards = new Dictionary<GameObject, Card[]>();
     private Card[] publicCards;
 
+    public static Action onNewPubilcCard;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,7 @@ public class PokerGameLogic : MonoBehaviour
         }
     }
 
+   
 
     private void createDict()
     {
