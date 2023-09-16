@@ -13,7 +13,7 @@ public class PokerGameLogic : MonoBehaviour
 
     public static Action onNewPubilcCard;
     
-    // can be 1 - 10 (Royal Flush, Straight Flush, Four of a Kind, Full House, Flush, Straight, Three of A Kind, Two Pair, Pair, High Card) [<- In order 1 - 10]
+    // can be 1 - 10 (Royal Flush, Straight Flush, Four of a Kind, Full House, Flush, Straight, Three of A Kind, Two Pair, Pair, High Card, NOTHING) [<- In order 1 - 11]
     Dictionary<GameObject, int> playerHandValue = new Dictionary<GameObject, int>();
 
     // Start is called before the first frame update
@@ -56,23 +56,11 @@ public class PokerGameLogic : MonoBehaviour
         return winner;
     }
 
-
+    
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
     {
-        GameObject bestPlayer = null;
-        GameObject bestHand = null;
-
-        Dictionary<GameObject, int> playerCardValue = new Dictionary<GameObject, int>();
-        
-        foreach (var cur in playerCards)
-        {
-            int sum = cur.Value[0].getCardNum() + cur.Value[1].getCardNum();
-            playerCardValue.Add(cur.Key, sum);
-        }
-        
-        
-        return new GameObject();
-    }
+         
+    } 
 
 
     private void FilterFlopped()
