@@ -59,7 +59,7 @@ public class PokerGameLogic : MonoBehaviour
     
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
     {
-         
+        gameObject.GetComponent<HandTests>().checkHand(playerCards, publicCards);
     } 
 
 

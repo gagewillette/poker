@@ -7,7 +7,5 @@ public class Player : MonoBehaviour
    public PlayerGameLogic logic;
    public GameObject bodyObject;
    public Card cards;
-   public int cardSum;
-
-
+   public int cardSum; 
 }

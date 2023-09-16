@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,13 @@ using UnityEngine.PlayerLoop;
 
 public class HandTests : MonoBehaviour
 {
-    private Card[] playerCards;
+    Dictionary<GameObject, Card[]> playerCards;
     private Card[] publicCards;
-    
-    
+
+    private Card[] allCards;
+
+    private int[] allCardNums;
+
     enum HandValues
     {
         RoyalFlush = 1,
@@ -23,32 +27,38 @@ public class HandTests : MonoBehaviour
         HighCard = 10
     }
 
-    public int checkHand(Card[] playerCard , Card[] publicCard)
+    public int checkHand(Dictionary<GameObject, Card[]> playerCard, Card[] publicCard)
     {
         playerCards = playerCard;
         publicCards = publicCard;
+
+        allCardNums = new int[]
+        {
+            allCards[0].getCardNum(), allCards[1].getCardNum(), allCards[2].getCardNum(), allCards[3].getCardNum(),
+            allCards[4].getCardNum(), allCards[5].getCardNum(), allCards[6].getCardNum(),
+        };
         
-        if (checkRoyalFLush())
-            return (int) HandValues.RoyalFlush;
+       /* if (checkRoyalFLush())
+            return (int)HandValues.RoyalFlush;
         if (checkStraightFlush())
-            return (int) HandValues.StraightFlush;
+            return (int)HandValues.StraightFlush;
         if (checkFourOfKind())
-            return (int) HandValues.FourOfKind;
+            return (int)HandValues.FourOfKind;
         if (checkFullHouse())
-            return (int) HandValues.FullHouse;
+            return (int)HandValues.FullHouse;
         if (checkFlush())
-            return (int) HandValues.Flush;
+            return (int)HandValues.Flush;*/
         if (checkStraight())
-            return (int) HandValues.Straight;
-        if (checkThreeOfKind())
-            return (int) HandValues.ThreeOfKind;
+            return (int)HandValues.Straight;
+        /*if (checkThreeOfKind())
+            return (int)HandValues.ThreeOfKind;
         if (checkTwoPair())
-            return (int) HandValues.TwoPair;
+            return (int)HandValues.TwoPair;
         if (checkPair())
-            return (int) HandValues.Pair;
+            return (int)HandValues.Pair;
         if (checkHighCard())
-            return (int) HandValues.HighCard;
-        
+            return (int)HandValues.HighCard;*/
+
         return 11;
     }
 
@@ -79,7 +89,25 @@ public class HandTests : MonoBehaviour
 
     private bool checkStraight()
     {
-        throw new System.NotImplementedException();
+        Array.Sort(allCardNums);
+
+        int consecutiveCount = 0;
+        
+        for (int i = 0; i < allCardNums.Length - 1 ; i++)
+        {
+            int cur = allCardNums[i];
+
+            if (cur == allCardNums[i + 1])
+            {
+                consecutiveCount++;
+            }
+
+        }
+
+        if (consecutiveCount >= 5)
+            return true;
+        else
+            return false;
     }
 
     private bool checkThreeOfKind()
