@@ -48,7 +48,7 @@ public class PokerGameLogic : MonoBehaviour
         FilterFlopped();
         onNewPubilcCard?.Invoke();
         Debug.Log(playerCards.ToCommaSeparatedString());
-        winner = determineWinner(playerCards, publicCards);
+        //winner = determineWinner(playerCards, publicCards);
     }
 
     public GameObject getWinner()
