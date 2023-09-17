@@ -60,6 +60,8 @@ public class PokerGameLogic : MonoBehaviour
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
     {
         gameObject.GetComponent<HandTests>().checkHand(playerCards, publicCards);
+
+        return new GameObject();
     } 
 
 
@@ -85,14 +87,14 @@ public class PokerGameLogic : MonoBehaviour
     private void createDict()
     {
         playerCards.Add(GameObject.Find("Player"),
-            GameObject.Find("Player").GetComponent<PlayerGameLogic>().getCards());
+            GameObject.Find("Player").GetComponent<PlayerScript>().getCards());
         playerCards.Add(GameObject.Find("Player (1)"),
-            GameObject.Find("Player (1)").GetComponent<PlayerGameLogic>().getCards());
+            GameObject.Find("Player (1)").GetComponent<PlayerScript>().getCards());
         playerCards.Add(GameObject.Find("Player (2)"),
-            GameObject.Find("Player (2)").GetComponent<PlayerGameLogic>().getCards());
+            GameObject.Find("Player (2)").GetComponent<PlayerScript>().getCards());
         playerCards.Add(GameObject.Find("Player (3)"),
-            GameObject.Find("Player (3)").GetComponent<PlayerGameLogic>().getCards());
+            GameObject.Find("Player (3)").GetComponent<PlayerScript>().getCards());
         playerCards.Add(GameObject.Find("Player (4)"),
-            GameObject.Find("Player (4)").GetComponent<PlayerGameLogic>().getCards());
+            GameObject.Find("Player (4)").GetComponent<PlayerScript>().getCards());
     }
 }

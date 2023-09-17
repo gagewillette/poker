@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class PlayerGameLogic : MonoBehaviour
 {
-    private static Card cardOne;
-    private static Card cardTwo;
-    public Card[] playerCards = new Card[2];
-
     public bool isPlayerFlopped;
     
     [SerializeField]
@@ -16,26 +12,25 @@ public class PlayerGameLogic : MonoBehaviour
 
     public float playerBuyIn = 1000;
     
+    private UILogic uilog;
+    
     // Start is called before the first frame update
     void Start()
     {
-        cardOne = CardDistributor.getCard();
-        cardTwo = CardDistributor.getCard();
-        playerCards[0] = cardOne;
-        playerCards[1] = cardTwo;
+        uilog = gameObject.GetComponent<UILogic>();
 
         //debug player cards to console
         //Debug.Log($"{gameObject.name} cards: Card One: " + cardOne.getCardNum() + " " +  cardOne.getSuitString() + " Card 2: " + cardTwo.getCardNum() + " " + cardTwo.getSuitString());
     }
 
-    public Card[] getCards() { return playerCards; }
-    
-    
-    
     
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            isPlayerFlopped = true;
+            uilog.isFlop = true;
+        }
     }
 }
