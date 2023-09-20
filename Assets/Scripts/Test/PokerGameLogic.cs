@@ -50,12 +50,6 @@ public class PokerGameLogic : MonoBehaviour
         Debug.Log(playerCards.ToCommaSeparatedString());
         //winner = determineWinner(playerCards, publicCards);
     }
-
-    public GameObject getWinner()
-    {
-        return winner;
-    }
-
     
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
     {
@@ -87,14 +81,14 @@ public class PokerGameLogic : MonoBehaviour
     private void createDict()
     {
         playerCards.Add(GameObject.Find("Player"),
-            GameObject.Find("Player").GetComponent<PlayerScript>().getCards());
+            GameObject.Find("Player").GetComponent<PlayerClass>().getCards());
         playerCards.Add(GameObject.Find("Player (1)"),
-            GameObject.Find("Player (1)").GetComponent<PlayerScript>().getCards());
+            GameObject.Find("Player (1)").GetComponent<PlayerClass>().getCards());
         playerCards.Add(GameObject.Find("Player (2)"),
-            GameObject.Find("Player (2)").GetComponent<PlayerScript>().getCards());
+            GameObject.Find("Player (2)").GetComponent<PlayerClass>().getCards());
         playerCards.Add(GameObject.Find("Player (3)"),
-            GameObject.Find("Player (3)").GetComponent<PlayerScript>().getCards());
+            GameObject.Find("Player (3)").GetComponent<PlayerClass>().getCards());
         playerCards.Add(GameObject.Find("Player (4)"),
-            GameObject.Find("Player (4)").GetComponent<PlayerScript>().getCards());
+            GameObject.Find("Player (4)").GetComponent<PlayerClass>().getCards());
     }
 }

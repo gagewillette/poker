@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerClass : MonoBehaviour
 {
     public PlayerGameLogic logic;
     public GameObject bodyObject;
     
     private Card cardOne;
     private Card cardTwo;
-    public Card[] playerCards = new Card[2];
+    public Card[] playerCards;
 
     void Start()
     {
         logic = GetComponent<PlayerGameLogic>();
+        bodyObject = GetComponentInChildren<CapsuleCollider>().gameObject;
         
         cardOne = CardDistributor.getCard();
         cardTwo = CardDistributor.getCard();
-        playerCards[0] = cardOne;
-        playerCards[1] = cardTwo;
+
+
+        playerCards = new[] { cardOne, cardTwo };
     }
 
 
