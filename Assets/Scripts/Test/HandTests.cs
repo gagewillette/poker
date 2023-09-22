@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -32,14 +33,8 @@ public class HandTests : MonoBehaviour
     {
         playerCards = playerCard;
         publicCards = publicCard;
-
-        allCards = publicCards.Concat(playerCards).ToArray();
         
-        allCardNums = new int[]
-        {
-            allCards[0].getCardNum(), allCards[1].getCardNum(), allCards[2].getCardNum(), allCards[3].getCardNum(),
-            allCards[4].getCardNum(), allCards[5].getCardNum(), allCards[6].getCardNum(),
-        };
+        allCards = publicCards.Concat(playerCards).ToArray();
         
        /* if (checkRoyalFLush())
             return (int)HandValues.RoyalFlush;

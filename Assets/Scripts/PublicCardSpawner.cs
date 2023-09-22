@@ -29,6 +29,7 @@ public class PublicCardSpawner : MonoBehaviour
     public bool isTurn = false;
     public bool isRiver = false;
     //END TEST VARIABLES
+    
 
 
     void Start()
@@ -47,9 +48,10 @@ public class PublicCardSpawner : MonoBehaviour
 
         allCards = new Card[] { flop[0], flop[1], flop[2], turn, river };
 
-        cardPrefabs = getCardPrefabs();
+        Debug.Log("PUblic card Spanwer: " + allCards.ToCommaSeparatedString());
         
-        Debug.Log(allCards.ToCommaSeparatedString());
+        cardPrefabs = getCardPrefabs();
+
     }
 
     // Update is called once per frame

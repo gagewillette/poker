@@ -21,7 +21,9 @@ public class PokerGameLogic : MonoBehaviour
     {
         createDict();
         publicCards = GameObject.Find("PublicCards").GetComponent<PublicCardSpawner>().allCards;
-
+    
+        Debug.Log("Public cards: " + publicCards.ToCommaSeparatedString());
+        
         onNewPubilcCard += FilterFlopped;
 
         PublicCardSpawner.FlopAction += onFlop;
@@ -48,11 +50,16 @@ public class PokerGameLogic : MonoBehaviour
         FilterFlopped();
         onNewPubilcCard?.Invoke();
         Debug.Log(playerCards.ToCommaSeparatedString());
-        winner = determineWinner(playerCards, publicCards);
+        Debug.Log(publicCards.ToCommaSeparatedString());
+        //winner = determineWinner(playerCards, publicCards);
     }
     
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
     {
+        
+        // FUCKING ADD THE HANDTESTS SCIRPT TO EACH OF THE DAMN PLAYERS
+        
+        
         GameObject currentWinner = new GameObject();
         int currentWinnerHandRank = 11;
         
