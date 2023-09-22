@@ -48,14 +48,25 @@ public class PokerGameLogic : MonoBehaviour
         FilterFlopped();
         onNewPubilcCard?.Invoke();
         Debug.Log(playerCards.ToCommaSeparatedString());
-        //winner = determineWinner(playerCards, publicCards);
+        winner = determineWinner(playerCards, publicCards);
     }
     
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
     {
-        gameObject.GetComponent<HandTests>().checkHand(playerCards, publicCards);
+        GameObject currentWinner = new GameObject();
+        int currentWinnerHandRank = 11;
+        
+        foreach (var cur in playerCards)
+        {
+            int temp = gameObject.GetComponent<HandTests>().checkHand(cur.Value, publicCards);
 
-        return new GameObject();
+            if (temp < currentWinnerHandRank)
+                currentWinner = cur.Key;
+        }
+        
+        Debug.Log(currentWinner.gameObject.name);
+        
+        return currentWinner;
     } 
 
 

@@ -48,18 +48,7 @@ public class PublicCardSpawner : MonoBehaviour
         allCards = new Card[] { flop[0], flop[1], flop[2], turn, river };
 
         cardPrefabs = getCardPrefabs();
-
-        //DEBUG
-
-        foreach (var cur in flop)
-        {
-            Debug.Log(cur.getSuit() + " " + cur.getCardNum());
-        }
-
-        Debug.Log(turn.getSuit() + " " + turn.getCardNum());
-        Debug.Log(river.getSuit() + " " + river.getCardNum());
-        //END DEBUG
-        ;
+        
         Debug.Log(allCards.ToCommaSeparatedString());
     }
 

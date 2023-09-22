@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 public class HandTests : MonoBehaviour
 {
-    Dictionary<GameObject, Card[]> playerCards;
+    Card[] playerCards;
     private Card[] publicCards;
 
     private Card[] allCards;
@@ -27,11 +28,13 @@ public class HandTests : MonoBehaviour
         HighCard = 10
     }
 
-    public int checkHand(Dictionary<GameObject, Card[]> playerCard, Card[] publicCard)
+    public int checkHand(Card[] playerCard, Card[] publicCard)
     {
         playerCards = playerCard;
         publicCards = publicCard;
 
+        allCards = publicCards.Concat(playerCards).ToArray();
+        
         allCardNums = new int[]
         {
             allCards[0].getCardNum(), allCards[1].getCardNum(), allCards[2].getCardNum(), allCards[3].getCardNum(),
@@ -97,7 +100,7 @@ public class HandTests : MonoBehaviour
         {
             int cur = allCardNums[i];
 
-            if (cur == allCardNums[i + 1])
+            if (cur + 1 == allCardNums[i + 1])
             {
                 consecutiveCount++;
             }
