@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,14 +8,14 @@ public class PlayerLook : MonoBehaviour
 {
     public float sensX;
     public float sensY;
-    
-    public Transform orientation;
 
+    public Transform orientation;
+    
     private float xRotation;
     private float yRotation;
 
-    private int frameDelay = 0;
-    
+    public int frameDelay = 0;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -34,29 +35,19 @@ public class PlayerLook : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-        
+
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Mathf.Infinity))
         {
             frameDelay++;
             if (frameDelay < 60)
                 return;
-            
+            frameDelay = 0;
             if (!hit.transform.name.Contains("CasinoChip"))
-                return;    
-            if (Input.GetMouseButton(0))
-            {
-                if (!hit.transform.name.Contains("CasinoChip"))
-                    return;   
-            
-                Debug.Log("Clicking at chip");
                 return;
-            }
-
-            Outline obj = hit.transform.GetComponent<Outline>();
             
-            obj.enabled = !obj.enabled;
+            gameObject.transform.parent.GetComponent<OutlineShader>().ChipHit(hit);
             
-            Debug.Log("Looking at chip");
         }
+        
     }
 }

@@ -56,10 +56,6 @@ public class PokerGameLogic : MonoBehaviour
     
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
     {
-        
-        // FUCKING ADD THE HANDTESTS SCIRPT TO EACH OF THE DAMN PLAYERS
-        
-        
         GameObject currentWinner = new GameObject();
         int currentWinnerHandRank = 11;
         
