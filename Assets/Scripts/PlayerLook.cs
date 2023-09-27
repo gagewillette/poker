@@ -36,6 +36,10 @@ public class PlayerLook : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
 
+        /*
+        
+        TODO: have the chips outline on hover over. they must be the players respective chips.
+        
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, Mathf.Infinity))
         {
             frameDelay++;
@@ -45,9 +49,11 @@ public class PlayerLook : MonoBehaviour
             if (!hit.transform.name.Contains("CasinoChip"))
                 return;
             
-            gameObject.transform.parent.GetComponent<OutlineShader>().ChipHit(hit);
+            hit.transform.GetComponent<OutlineShader>().ChipHit(hit);
             
         }
+        
+        */
         
     }
 }

@@ -94,8 +94,6 @@ public class PokerGameLogic : MonoBehaviour
 
     private void createDict()
     {
-        playerCards.Add(GameObject.Find("Player"),
-            GameObject.Find("Player").GetComponent<PlayerClass>().getCards());
         playerCards.Add(GameObject.Find("Player (1)"),
             GameObject.Find("Player (1)").GetComponent<PlayerClass>().getCards());
         playerCards.Add(GameObject.Find("Player (2)"),
@@ -104,5 +102,7 @@ public class PokerGameLogic : MonoBehaviour
             GameObject.Find("Player (3)").GetComponent<PlayerClass>().getCards());
         playerCards.Add(GameObject.Find("Player (4)"),
             GameObject.Find("Player (4)").GetComponent<PlayerClass>().getCards());
+        playerCards.Add(GameObject.Find("Player (5)"),
+            GameObject.Find("Player (5)").GetComponent<PlayerClass>().getCards());
     }
 }
