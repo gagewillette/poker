@@ -51,7 +51,7 @@ public class PokerGameLogic : MonoBehaviour
         onNewPubilcCard?.Invoke();
         Debug.Log(playerCards.ToCommaSeparatedString());
         Debug.Log(publicCards.ToCommaSeparatedString());
-        //winner = determineWinner(playerCards, publicCards);
+        winner = determineWinner(playerCards, publicCards);
     }
     
     private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)

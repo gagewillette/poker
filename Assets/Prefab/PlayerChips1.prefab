@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CasinoChip_Green_00
       objectReference: {fileID: 0}
+    - target: {fileID: 8947752950716321821, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
 --- !u!4 &8477648509117929222 stripped
@@ -333,6 +337,10 @@ PrefabInstance:
     - target: {fileID: 8947752950716321821, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
       propertyPath: m_Name
       value: CasinoChip_Green_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947752950716321821, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
@@ -396,6 +404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CasinoChip_Green_00
       objectReference: {fileID: 0}
+    - target: {fileID: 8947752950716321821, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
 --- !u!4 &583465331480503869 stripped
@@ -458,6 +470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CasinoChip_Green_00
       objectReference: {fileID: 0}
+    - target: {fileID: 8947752950716321821, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
 --- !u!4 &1748122584036707531 stripped
@@ -519,6 +535,10 @@ PrefabInstance:
     - target: {fileID: 8947752950716321821, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
       propertyPath: m_Name
       value: CasinoChip_Green_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947752950716321821, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30abd70c42ebfa0479d1b63a667937cf, type: 3}
