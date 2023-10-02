@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1088639651577",
+    "project_id": "poker-a32ff",
+    "storage_bucket": "poker-a32ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088639651577:android:72bb8e6ecd2a4786179c28",
+        "android_client_info": {
+          "package_name": "com.gagewillette.poker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm-ArO4hAc-3o5E37o3yuq1u55zxDraCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -48,7 +48,7 @@ public class PublicCardSpawner : MonoBehaviour
 
         allCards = new Card[] { flop[0], flop[1], flop[2], turn, river };
 
-        Debug.Log("PUblic card Spanwer: " + allCards.ToCommaSeparatedString());
+        Debug.Log("Public card Spanwer: " + allCards.ToCommaSeparatedString());
         
         cardPrefabs = getCardPrefabs();
 

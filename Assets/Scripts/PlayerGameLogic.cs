@@ -6,12 +6,6 @@ using UnityEngine;
 public class PlayerGameLogic : MonoBehaviour
 {
     public bool isPlayerFlopped;
-    
-    [SerializeField]
-    private float playerChipBalance = 10000;
-
-    public float playerBuyIn = 1000;
-    
     private UILogic uilog;
     
     // Start is called before the first frame update

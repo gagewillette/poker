@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,19 +17,68 @@ public class PokerGameLogic : MonoBehaviour
     // can be 1 - 10 (Royal Flush, Straight Flush, Four of a Kind, Full House, Flush, Straight, Three of A Kind, Two Pair, Pair, High Card, NOTHING) [<- In order 1 - 11]
     Dictionary<GameObject, int> playerHandValue = new Dictionary<GameObject, int>();
 
-    // Start is called before the first frame update
+    private List<GameObject> players;
+
+    public enum GameState
+    {
+        Preflop,
+        Flop,
+        Turn,
+        River,
+        Showdown,
+        GameOver
+    }
+    
+
+    public int currentPlayerIndex = 0;
+    public GameState currentState;
+
     void Start()
     {
+        currentState = GameState.Preflop;
+        
+        
         createDict();
         publicCards = GameObject.Find("PublicCards").GetComponent<PublicCardSpawner>().allCards;
-    
+        players = playerCards.Keys.ToList();
         Debug.Log("Public cards: " + publicCards.ToCommaSeparatedString());
-        
+            
         onNewPubilcCard += FilterFlopped;
 
         PublicCardSpawner.FlopAction += onFlop;
         PublicCardSpawner.TurnAction += onTurn;
         PublicCardSpawner.RiverAction += onRiver;
+    }
+
+
+    private void Update()
+    {
+        switch (currentState)
+        {
+            case GameState.Preflop:
+                // Handle preflop actions (e.g., blinds, player bets)
+                break;
+
+            case GameState.Flop:
+                // Handle flop actions (deal community cards, player bets)
+                break;
+
+            case GameState.Turn:
+                // Handle turn actions (deal another community card, player bets)
+                break;
+
+            case GameState.River:
+                // Handle river actions (deal the final community card, player bets)
+                break;
+
+            case GameState.Showdown:
+                // Determine the winner(s) and distribute the pot
+                break;
+
+            case GameState.GameOver:
+                // Handle game over conditions
+                break;
+        }
     }
 
     private void onFlop()
@@ -105,4 +155,10 @@ public class PokerGameLogic : MonoBehaviour
         playerCards.Add(GameObject.Find("Player (4)"),
             GameObject.Find("Player (4)").GetComponent<PlayerClass>().getCards());
     }
+
+    private void nextPlayer()
+    {
+        currentPlayerIndex = (currentPlayerIndex + 1) % players.Count;
+    }
+
 }
