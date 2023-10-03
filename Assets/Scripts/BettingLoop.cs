@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class BettingLoop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public Dictionary<int, int> playerBets = new Dictionary<int, int>();
+    
         
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
 }
