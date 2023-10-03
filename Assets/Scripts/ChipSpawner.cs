@@ -31,7 +31,7 @@ public class ChipSpawner : MonoBehaviour
     
     private void Start()
     {
-        totalChipCount = playerObj.GetComponent<PlayerGameLogic>().playerBuyIn;
+        totalChipCount = playerObj.GetComponent<PlayerClass>().playerBuyIn;
         
         children = getChildren(gameObject.transform);
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.031163083, g: 0.009459269, b: 0.013044128, a: 1}
+  m_IndirectSpecularColor: {r: 0.031109823, g: 0.009473317, b: 0.012994485, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 99721564}
   - component: {fileID: 99721563}
   - component: {fileID: 99721565}
+  - component: {fileID: 99721566}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -363,6 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c2253c358ac14793be2fa84bbd84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPlayerIndex: 0
+  currentState: 0
 --- !u!4 &99721564
 Transform:
   m_ObjectHideFlags: 0
@@ -388,6 +391,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0857626c7f072dd47bc35e16e4380613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &99721566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99721562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2c98456fb64e609bfa876e1bfd1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &172104265
@@ -606,8 +621,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerFlopped: 0
-  playerChipBalance: 10000
-  playerBuyIn: 500
 --- !u!4 &188152215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8360359969364254707, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -641,6 +654,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
+  playerBuyIn: 0
+  gameChipCount: 0
+  walletChipCount: 0
 --- !u!1 &235171132
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,8 +894,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerFlopped: 0
-  playerChipBalance: 10000
-  playerBuyIn: 500
 --- !u!4 &342166406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8360359969364254707, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -913,6 +927,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
+  playerBuyIn: 0
+  gameChipCount: 0
+  walletChipCount: 0
 --- !u!1 &378395895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,8 +1333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerFlopped: 0
-  playerChipBalance: 10000
-  playerBuyIn: 500
 --- !u!4 &544501858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8360359969364254707, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -1351,6 +1366,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
+  playerBuyIn: 0
+  gameChipCount: 0
+  walletChipCount: 0
 --- !u!1 &562343181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8360359969073080055, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -1756,8 +1774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerFlopped: 0
-  playerChipBalance: 10000
-  playerBuyIn: 500
 --- !u!4 &667686008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8360359969364254707, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -1803,6 +1819,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
+  playerBuyIn: 0
+  gameChipCount: 0
+  walletChipCount: 0
 --- !u!114 &667686013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5867,8 +5886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerFlopped: 0
-  playerChipBalance: 10000
-  playerBuyIn: 500
 --- !u!4 &2136433146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8360359969364254707, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -5902,6 +5919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
+  playerBuyIn: 0
+  gameChipCount: 0
+  walletChipCount: 0
 --- !u!4 &2137673906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 963591502992492668, guid: ce6979a7acf1d4f2389765b81d06076c, type: 3}
