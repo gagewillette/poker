@@ -7,18 +7,21 @@ using UnityEngine;
 
 public class PokerGameLogic : MonoBehaviour
 {
-    private Dictionary<GameObject, Card[]> playerCards = new Dictionary<GameObject, Card[]>();
-    private Card[] publicCards;
 
+    private Card[] publicCards;
     private GameObject winner;
 
     public static Action onNewPubilcCard;
-    
+    public static Action onPreFlop;
+        
+    // TODO: figure out what the fuck to do with this
     // can be 1 - 10 (Royal Flush, Straight Flush, Four of a Kind, Full House, Flush, Straight, Three of A Kind, Two Pair, Pair, High Card, NOTHING) [<- In order 1 - 11]
     Dictionary<GameObject, int> playerHandValue = new Dictionary<GameObject, int>();
 
-    private List<GameObject> players;
-
+    //dictionaries
+    public List<GameObject> players;
+    private Dictionary<GameObject, Card[]> playerCardsDict;
+    
     public enum GameState
     {
         Preflop,
@@ -35,12 +38,11 @@ public class PokerGameLogic : MonoBehaviour
 
     void Start()
     {
+        //THIS WILL BREAK THIS WILL BREAK THIS WILL BREAK
+        playerCardsDict = GameObject.Find("Player (1)").GetComponent<PlayerClass>().getPlayerCardDict();
         currentState = GameState.Preflop;
-        
-        
-        createDict();
         publicCards = GameObject.Find("PublicCards").GetComponent<PublicCardSpawner>().allCards;
-        players = playerCards.Keys.ToList();
+        players = playerCardsDict.Keys.ToList();
         Debug.Log("Public cards: " + publicCards.ToCommaSeparatedString());
             
         onNewPubilcCard += FilterFlopped;
@@ -57,6 +59,7 @@ public class PokerGameLogic : MonoBehaviour
         {
             case GameState.Preflop:
                 // Handle preflop actions (e.g., blinds, player bets)
+                onPreFlop?.Invoke();
                 break;
 
             case GameState.Flop:
@@ -85,31 +88,31 @@ public class PokerGameLogic : MonoBehaviour
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
-        Debug.Log(playerCards.ToCommaSeparatedString());
+        Debug.Log(playerCardsDict.ToCommaSeparatedString());
     }
 
     private void onTurn()
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
-        Debug.Log(playerCards.ToCommaSeparatedString());
+        Debug.Log(playerCardsDict.ToCommaSeparatedString());
     }
 
     private void onRiver()
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
-        Debug.Log(playerCards.ToCommaSeparatedString());
+        Debug.Log(playerCardsDict.ToCommaSeparatedString());
         Debug.Log(publicCards.ToCommaSeparatedString());
-        winner = determineWinner(playerCards, publicCards);
+        winner = determineWinner(playerCardsDict, publicCards);
     }
     
-    private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCards, Card[] publicCards)
+    private GameObject determineWinner(Dictionary<GameObject, Card[]> playerCardsDict, Card[] publicCards)
     {
         GameObject currentWinner = new GameObject();
         int currentWinnerHandRank = 11;
         
-        foreach (var cur in playerCards)
+        foreach (var cur in playerCardsDict)
         {
             int temp = gameObject.GetComponent<HandTests>().checkHand(cur.Value, publicCards);
 
@@ -127,7 +130,7 @@ public class PokerGameLogic : MonoBehaviour
     {
         List<GameObject> keysToRemove = new List<GameObject>();
 
-        foreach (var cur in playerCards)
+        foreach (var cur in playerCardsDict)
         {
             if (cur.Key.GetComponent<PlayerGameLogic>().isPlayerFlopped)
             {
@@ -137,24 +140,12 @@ public class PokerGameLogic : MonoBehaviour
 
         foreach (var cur in keysToRemove)
         {
-            playerCards.Remove(cur);
+            playerCardsDict.Remove(cur);
         }
     }
 
 
-    private void createDict()
-    {
-        playerCards.Add(GameObject.Find("Player (1)"),
-            GameObject.Find("Player (1)").GetComponent<PlayerClass>().getCards());
-        playerCards.Add(GameObject.Find("Player (2)"),
-            GameObject.Find("Player (2)").GetComponent<PlayerClass>().getCards());
-        playerCards.Add(GameObject.Find("Player (3)"),
-            GameObject.Find("Player (3)").GetComponent<PlayerClass>().getCards());
-        playerCards.Add(GameObject.Find("Player (4)"),
-            GameObject.Find("Player (4)").GetComponent<PlayerClass>().getCards());
-        playerCards.Add(GameObject.Find("Player (5)"),
-            GameObject.Find("Player (5)").GetComponent<PlayerClass>().getCards());
-    }
+ 
 
     private void nextPlayer()
     {

@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1c2253c358ac14793be2fa84bbd84f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
   currentPlayerIndex: 0
   currentState: 0
 --- !u!4 &99721564
@@ -656,7 +657,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
-  playerBuyIn: 0
+  isBigBlind: 0
+  isSmallBlind: 0
+  playerNum: 2
+  playerBuyIn: 500
   gameChipCount: 0
   walletChipCount: 0
 --- !u!1 &235171132
@@ -929,7 +933,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
-  playerBuyIn: 0
+  isBigBlind: 0
+  isSmallBlind: 0
+  playerNum: 4
+  playerBuyIn: 500
   gameChipCount: 0
   walletChipCount: 0
 --- !u!1 &378395895
@@ -1368,7 +1375,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
-  playerBuyIn: 0
+  isBigBlind: 0
+  isSmallBlind: 0
+  playerNum: 0
+  playerBuyIn: 500
   gameChipCount: 0
   walletChipCount: 0
 --- !u!1 &562343181 stripped
@@ -1821,7 +1831,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
-  playerBuyIn: 0
+  isBigBlind: 0
+  isSmallBlind: 0
+  playerNum: 1
+  playerBuyIn: 500
   gameChipCount: 0
   walletChipCount: 0
 --- !u!114 &667686013
@@ -6056,7 +6069,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logic: {fileID: 0}
   bodyObject: {fileID: 0}
-  playerBuyIn: 0
+  isBigBlind: 0
+  isSmallBlind: 0
+  playerNum: 3
+  playerBuyIn: 500
   gameChipCount: 0
   walletChipCount: 0
 --- !u!4 &2137673906 stripped
