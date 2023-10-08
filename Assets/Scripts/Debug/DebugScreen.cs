@@ -53,7 +53,7 @@ public class DebugScreen : MonoBehaviour
 
     private string getGameState()
     {
-        return GameObject.Find("GameLogic").GetComponent<PokerGameLogic>().currentState.ToString();
+        return GameObject.Find("GameLogic").GetComponent<GameStateManager>().currentState.ToString();
     }
 
     private string getBlinds()
