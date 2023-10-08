@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-
     public static Action onPreFlop;
     public static Action onFlop;
     public static Action onTurn;
     public static Action onRiver;
     public static Action onShowdown;
     public static Action onGameOver;
+    public static Action newBettingRound;
 
     public enum GameState
     {
@@ -37,8 +37,8 @@ public class GameStateManager : MonoBehaviour
             return;
         prevState = currentState;
         stateManager();
-
-
+        if (!(currentState.Equals(GameState.Showdown) || currentState.Equals(GameState.GameOver)))
+            newBettingRound?.Invoke();
     }
 
     private void stateManager()
@@ -76,5 +76,4 @@ public class GameStateManager : MonoBehaviour
                 break;
         }
     }
-
 }

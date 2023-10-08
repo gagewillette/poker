@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Blinds : MonoBehaviour
 {
-    // blind indicies
+    // blind player indicies
     private int smallBlindPlayerIndex = 1;
     private int bigBlindPlayerIndex = 0;
 
@@ -21,6 +21,8 @@ public class Blinds : MonoBehaviour
         gameLogic = gameObject.GetComponent<PokerGameLogic>();
         setBlinds();
     }
+    
+    
 
     void setBlinds()
     {

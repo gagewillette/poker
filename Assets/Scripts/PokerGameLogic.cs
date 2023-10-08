@@ -27,8 +27,7 @@ public class PokerGameLogic : MonoBehaviour
 
     void Start()
     {
-        //THIS WILL BREAK THIS WILL BREAK THIS WILL BREAK
-        playerCardsDict = GameObject.Find("Player (1)").GetComponent<PlayerClass>().getPlayerCardDict();
+        playerCardsDict = GameObject.Find("Singletons").GetComponent<PlayerArray>().getPlayerCardDict();
         publicCards = GameObject.Find("PublicCards").GetComponent<PublicCardSpawner>().allCards;
         players = playerCardsDict.Keys.ToList();
         Debug.Log("Public cards: " + publicCards.ToCommaSeparatedString());

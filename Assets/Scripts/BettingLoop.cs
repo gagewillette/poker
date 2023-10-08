@@ -6,7 +6,7 @@ public class BettingLoop : MonoBehaviour
 {
     public Dictionary<int, int> playerBets = new Dictionary<int, int>();
     
-        
+    
 
 
 
