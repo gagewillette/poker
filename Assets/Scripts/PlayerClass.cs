@@ -8,7 +8,9 @@ using UnityEngine;
 public class PlayerClass : MonoBehaviour
 {
     //object references
+    [HideInInspector]
     public PlayerGameLogic logic;
+    [HideInInspector]
     public GameObject bodyObject;
 
     public bool isBigBlind;
