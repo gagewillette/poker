@@ -10,7 +10,7 @@ public class PlayerArray : MonoBehaviour
 
     public Dictionary<GameObject, Card[]> playerCardsDict = new Dictionary<GameObject, Card[]>();
 
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
         {
@@ -31,10 +31,11 @@ public class PlayerArray : MonoBehaviour
 
     private void createDict()
     {
+        Debug.LogError("Making dictionary");
         List<GameObject> players = GameObject.FindGameObjectsWithTag("Player").ToList();
         foreach (GameObject cur in players)
         {
-            playerCardsDict.Add(cur, cur.GetComponent<PlayerClass>().getCards());
+            playerCardsDict.Add(cur, cur.GetComponent<PlayerClass>().playerCards);
         }
     }
 }

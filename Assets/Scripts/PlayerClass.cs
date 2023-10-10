@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerClass : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerClass : MonoBehaviour
 
     private Card cardOne;
     private Card cardTwo;
+    
     public Card[] playerCards;
     
     // chip data
@@ -38,6 +40,7 @@ public class PlayerClass : MonoBehaviour
         cardTwo = CardDistributor.getCard();
         playerCards = new[] { cardOne, cardTwo };
         gameChipCount = playerBuyIn;
+        Debug.Log(playerCards.ToCommaSeparatedString());
     }
 
     public Card getCardOne()
