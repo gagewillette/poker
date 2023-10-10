@@ -31,11 +31,10 @@ public class PlayerArray : MonoBehaviour
 
     private void createDict()
     {
-        Debug.LogError("Making dictionary");
         List<GameObject> players = GameObject.FindGameObjectsWithTag("Player").ToList();
         foreach (GameObject cur in players)
         {
-            playerCardsDict.Add(cur, cur.GetComponent<PlayerClass>().playerCards);
+            playerCardsDict.Add(cur, cur.GetComponent<PlayerClass>().getCards());
         }
     }
 }

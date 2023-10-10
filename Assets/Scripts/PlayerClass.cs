@@ -22,7 +22,7 @@ public class PlayerClass : MonoBehaviour
     private Card cardOne;
     private Card cardTwo;
     
-    public Card[] playerCards;
+    private Card[] playerCards;
     
     // chip data
     public int playerBuyIn;
@@ -40,7 +40,6 @@ public class PlayerClass : MonoBehaviour
         cardTwo = CardDistributor.getCard();
         playerCards = new[] { cardOne, cardTwo };
         gameChipCount = playerBuyIn;
-        Debug.Log(playerCards.ToCommaSeparatedString());
     }
 
     public Card getCardOne()
