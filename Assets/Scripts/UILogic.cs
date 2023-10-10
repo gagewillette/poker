@@ -9,11 +9,10 @@ public class UILogic : MonoBehaviour
 {
     private string texturePath = "/Assets/Playing Cards/Image/PlayingCards/BackColor_Black.png";
     private Card[] playerCards;
-    private PlayerGameLogic logic;
+    private PlayerClass player;
     private RawImage cardOneImg;
     private RawImage cardTwoImg;
-
-    [SerializeField]
+    
     private GameObject playerCapsule;
     private Renderer capsuleRend;
     
@@ -22,15 +21,16 @@ public class UILogic : MonoBehaviour
     
     private void Start()
     {
+        playerCapsule = GetComponentInChildren<CapsuleCollider>().gameObject;
         capsuleRend = playerCapsule.GetComponent<Renderer>();
         
         RawImage[] imgComps = gameObject.GetComponentsInChildren<RawImage>();
         cardOneImg = imgComps[1];
         cardTwoImg = imgComps[0];
         
-        logic = gameObject.GetComponent<PlayerGameLogic>();
+        player = gameObject.GetComponent<PlayerClass>();
         
-        playerCards = logic.playerCards;
+        playerCards = player.playerCards;
 
         string c1Sub = $"{playerCards[0].getSuitString()}{playerCards[0].getNumString()}";
         string c2Sub = $"{playerCards[1].getSuitString()}{playerCards[1].getNumString()}";
