@@ -36,7 +36,5 @@ public class PlayerArray : MonoBehaviour
         {
             playerCardsDict.Add(cur, cur.GetComponent<PlayerClass>().getCards());
         }
-
-        Debug.Log("Player dict " + playerCardsDict.ToCommaSeparatedString());
     }
 }

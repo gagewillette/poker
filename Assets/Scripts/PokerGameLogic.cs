@@ -28,9 +28,9 @@ public class PokerGameLogic : MonoBehaviour
     void Start()
     {
         playerCardsDict = GameObject.Find("Singletons").GetComponent<PlayerArray>().getPlayerCardDict();
+        Debug.Log("Poker game logci" + playerCardsDict.ToCommaSeparatedString());
         publicCards = GameObject.Find("PublicCards").GetComponent<PublicCardSpawner>().allCards;
         players = playerCardsDict.Keys.ToList();
-        Debug.Log("Public cards: " + publicCards.ToCommaSeparatedString());
             
         onNewPubilcCard += FilterFlopped;
 
@@ -38,30 +38,23 @@ public class PokerGameLogic : MonoBehaviour
         PublicCardSpawner.TurnAction += onTurn;
         PublicCardSpawner.RiverAction += onRiver;
     }
-
-
     
-
     private void onFlop()
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
-        Debug.Log(playerCardsDict.ToCommaSeparatedString());
     }
 
     private void onTurn()
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
-        Debug.Log(playerCardsDict.ToCommaSeparatedString());
     }
 
     private void onRiver()
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
-        Debug.Log(playerCardsDict.ToCommaSeparatedString());
-        Debug.Log(publicCards.ToCommaSeparatedString());
         winner = determineWinner(playerCardsDict, publicCards);
     }
     
@@ -72,6 +65,7 @@ public class PokerGameLogic : MonoBehaviour
         
         foreach (var cur in playerCardsDict)
         {
+            Debug.Log(cur.Value);
             int temp = gameObject.GetComponent<HandTests>().checkHand(cur.Value, publicCards);
 
             if (temp < currentWinnerHandRank)

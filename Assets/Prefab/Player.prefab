@@ -222,9 +222,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8360359969364254707}
-  - component: {fileID: 4579220324769295148}
-  - component: {fileID: 2638135327433640343}
-  - component: {fileID: 1723553692135822845}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -250,48 +247,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4579220324769295148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8360359969364254706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74f9c6b434bed6a4abcfcacaa01905e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayerFlopped: 0
---- !u!114 &2638135327433640343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8360359969364254706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7e5c565a3b69b4a81679728d2d6873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1723553692135822845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8360359969364254706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8159c22b12b6a4205a97c47c5d354570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logic: {fileID: 0}
-  bodyObject: {fileID: 0}
-  isBigBlind: 0
-  isSmallBlind: 0
-  playerNum: 1
-  playerBuyIn: 500
-  gameChipCount: 0
-  walletChipCount: 0

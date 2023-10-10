@@ -33,10 +33,10 @@ public class HandTests : MonoBehaviour
     {
         playerCards = playerCard;
         publicCards = publicCard;
-
+        
         allCards = playerCards.Concat(publicCards).ToArray();
         
-        Debug.Log(allCards.ToCommaSeparatedString());
+        
        
         allCardNums = new int[]
         {

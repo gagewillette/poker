@@ -19,10 +19,7 @@ public class PlayerClass : MonoBehaviour
     private Card cardOne;
     private Card cardTwo;
     public Card[] playerCards;
-
-    //THIS IS STATIC, IT CONTAINS EVERY PLAYER OBJECT AND THEIR CARDS
-    private Dictionary<GameObject, Card[]> playerCardsDict;
-
+    
     // chip data
     public int playerBuyIn;
     [HideInInspector] public int gameChipCount;
@@ -33,8 +30,6 @@ public class PlayerClass : MonoBehaviour
         //get object references
         logic = GetComponent<PlayerGameLogic>();
         bodyObject = GetComponentInChildren<CapsuleCollider>().gameObject;
-
-        playerCardsDict = GameObject.Find("Singletons").GetComponent<PlayerArray>().getPlayerCardDict();
 
         //get cards from distributor
         cardOne = CardDistributor.getCard();
