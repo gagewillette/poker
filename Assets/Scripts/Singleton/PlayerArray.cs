@@ -8,7 +8,7 @@ public class PlayerArray : MonoBehaviour
 {
     public static PlayerArray Instance; // Singleton Instance
 
-    private Dictionary<GameObject, Card[]> playerCardsDict = new Dictionary<GameObject, Card[]>();
+    public Dictionary<GameObject, Card[]> playerCardsDict = new Dictionary<GameObject, Card[]>();
 
     private void Awake()
     {

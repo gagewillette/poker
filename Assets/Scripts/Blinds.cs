@@ -29,6 +29,7 @@ public class Blinds : MonoBehaviour
         int totalChips = 0;
         foreach (GameObject cur in gameLogic.players)
         {
+            Debug.LogError(cur.GetComponent<PlayerClass>().playerBuyIn);
             totalChips += cur.GetComponent<PlayerClass>().playerBuyIn;
         }
         

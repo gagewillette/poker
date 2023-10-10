@@ -20,7 +20,6 @@ public class DebugScreen : MonoBehaviour
     public TMP_Text gameState;
     public TMP_Text blinds;
 
-    
     private void Awake()
     {
         look = gameObject.transform.parent.GetComponentInChildren<PlayerLook>();

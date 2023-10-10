@@ -12,8 +12,7 @@ public class UILogic : MonoBehaviour
     private PlayerClass player;
     private RawImage cardOneImg;
     private RawImage cardTwoImg;
-
-    [SerializeField]
+    
     private GameObject playerCapsule;
     private Renderer capsuleRend;
     
