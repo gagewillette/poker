@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerClass : MonoBehaviour
 {
@@ -16,11 +17,12 @@ public class PlayerClass : MonoBehaviour
     public bool isBigBlind;
     public bool isSmallBlind;
 
-    [SerializeField] private int playerNum;
+    [SerializeField] private  int playerNum;
 
     private Card cardOne;
     private Card cardTwo;
-    public Card[] playerCards;
+    
+    private Card[] playerCards;
     
     // chip data
     public int playerBuyIn;

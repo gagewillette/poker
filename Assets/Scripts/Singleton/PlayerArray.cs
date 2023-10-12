@@ -8,14 +8,16 @@ public class PlayerArray : MonoBehaviour
 {
     public static PlayerArray Instance; // Singleton Instance
 
-    public Dictionary<GameObject, Card[]> playerCardsDict = new Dictionary<GameObject, Card[]>();
+    private Dictionary<GameObject, Card[]> playerCardsDict = new Dictionary<GameObject, Card[]>();
+    private GameObject[] playerArray;
 
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
         {
             Instance = this;
             createDict();
+            createArray();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -36,5 +38,10 @@ public class PlayerArray : MonoBehaviour
         {
             playerCardsDict.Add(cur, cur.GetComponent<PlayerClass>().getCards());
         }
+    }
+
+    private void createArray()
+    {
+        playerArray = playerCardsDict.Keys.ToArray();
     }
 }

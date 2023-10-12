@@ -30,7 +30,7 @@ public class UILogic : MonoBehaviour
         
         player = gameObject.GetComponent<PlayerClass>();
         
-        playerCards = player.playerCards;
+        playerCards = player.getCards();
 
         string c1Sub = $"{playerCards[0].getSuitString()}{playerCards[0].getNumString()}";
         string c2Sub = $"{playerCards[1].getSuitString()}{playerCards[1].getNumString()}";

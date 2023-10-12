@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    public static Action onPreFlop;
-    public static Action onFlop;
-    public static Action onTurn;
-    public static Action onRiver;
-    public static Action onShowdown;
-    public static Action onGameOver;
-    public static Action newBettingRound;
+    public Action onPreFlop;
+    public Action onFlop;
+    public Action onTurn;
+    public Action onRiver;
+    public Action onShowdown;
+    public Action onGameOver;
+    public Action newBettingRound;
 
     public enum GameState
     {
