@@ -11,9 +11,11 @@ public class Blinds : MonoBehaviour
     private int bigBlindPlayerIndex = 0;
 
     //blind values
-    public int bigBlind;
-    public int smallBlind;
+    public int bigBlind, smallBlind;
 
+    //blind player objects
+    private GameObject smallBlindObj, bigBlindObj;
+    
     //reference to pokergamelogic
     private PokerGameLogic gameLogic;
 
@@ -49,16 +51,34 @@ public class Blinds : MonoBehaviour
 
         bigBlind = totalChips / gameLogic.players.Count / 20;
         smallBlind = totalChips / gameLogic.players.Count / 30;
+        
+
+        foreach (GameObject cur in playerArray)
+        {
+            switch (checkBlinds(cur))
+            {
+                case 0:
+                    break;
+                case 1:
+                    smallBlindObj = cur;
+                    break;
+                case 2:
+                    bigBlindObj = cur;
+                    break;
+            }
+        }
+        
     }
 
 
     private void SubtractBlinds()
     {
-        GameObject smallBlind, bigBlind;
-        foreach (GameObject cur in playerArray)
-        {
-                        
-        }
+        //get player buy ins and subtract that amount
+        smallBlindObj.GetComponent<PlayerClass>().playerBuyIn -= smallBlind;
+        bigBlindObj.GetComponent<PlayerClass>().playerBuyIn -= bigBlind;
+        
+        //move blind indicies to next player
+        nextPlayer();
     }
 
 
@@ -77,6 +97,13 @@ public class Blinds : MonoBehaviour
 
     private void nextPlayer()
     {
+        smallBlindPlayerIndex++;
+        bigBlindPlayerIndex++;
+
+        if (smallBlindPlayerIndex > 4)
+            smallBlindPlayerIndex = 0;
+        if (bigBlindPlayerIndex > 4)
+            bigBlindPlayerIndex = 0;
     }
 
     //if player is not a blind returns 0 ; if player is small blind returns 1; if player is big blind returns 2

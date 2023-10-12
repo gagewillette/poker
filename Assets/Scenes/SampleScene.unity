@@ -738,7 +738,7 @@ MonoBehaviour:
   playerNum: 2
   playerBuyIn: 500
   gameChipCount: 0
-  walletChipCount: 0
+  walletChipCount: 10000
 --- !u!1 &279016421
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
   playerNum: 4
   playerBuyIn: 500
   gameChipCount: 0
-  walletChipCount: 0
+  walletChipCount: 10000
 --- !u!1 &378395895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   playerNum: 0
   playerBuyIn: 500
   gameChipCount: 0
-  walletChipCount: 0
+  walletChipCount: 10000
 --- !u!1 &562343181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8360359969073080055, guid: 77842baebd3780a46ae080dfeda47b42, type: 3}
@@ -1674,7 +1674,7 @@ MonoBehaviour:
   playerNum: 1
   playerBuyIn: 500
   gameChipCount: 0
-  walletChipCount: 0
+  walletChipCount: 10000
 --- !u!1 &686895011
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,7 +5424,7 @@ MonoBehaviour:
   playerNum: 3
   playerBuyIn: 500
   gameChipCount: 0
-  walletChipCount: 0
+  walletChipCount: 10000
 --- !u!4 &2137673906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 963591502992492668, guid: ce6979a7acf1d4f2389765b81d06076c, type: 3}

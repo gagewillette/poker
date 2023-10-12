@@ -17,7 +17,7 @@ public class PlayerClass : MonoBehaviour
     public bool isBigBlind;
     public bool isSmallBlind;
 
-    [SerializeField] private int playerNum;
+    [SerializeField] private  int playerNum;
 
     private Card cardOne;
     private Card cardTwo;
