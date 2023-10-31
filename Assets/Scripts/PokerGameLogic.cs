@@ -43,16 +43,20 @@ public class PokerGameLogic : MonoBehaviour
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
+        
+        BettingLoop.newBettingLoop?.Invoke();
     }
 
     private void onTurn()
     {
         FilterFlopped();
         onNewPubilcCard?.Invoke();
+        BettingLoop.newBettingLoop?.Invoke();
     }
 
     private void onRiver()
     {
+        BettingLoop.newBettingLoop?.Invoke();
         FilterFlopped();
         onNewPubilcCard?.Invoke();
         winner = determineWinner(playerCardsDict, publicCards);
