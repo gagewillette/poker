@@ -11,6 +11,7 @@ public class BettingLoop : MonoBehaviour
 
     public void Awake()
     {
+        
     }
 
     public void Start()
@@ -25,6 +26,7 @@ public class BettingLoop : MonoBehaviour
 
     private void startNewLoop()
     {
+        
     }
 
     private void ZeroOutDict()
