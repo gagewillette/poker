@@ -31,6 +31,11 @@ public class PlayerArray : MonoBehaviour
         return playerCardsDict;
     }
 
+    public GameObject[] getPlayerArrray()
+    {
+        return playerArray;
+    }
+
     private void createDict()
     {
         List<GameObject> players = GameObject.FindGameObjectsWithTag("Player").ToList();

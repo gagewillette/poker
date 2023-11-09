@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 
 public class Blinds : MonoBehaviour
@@ -15,7 +16,7 @@ public class Blinds : MonoBehaviour
 
     //blind player objects
     private GameObject smallBlindObj, bigBlindObj;
-    
+
     //reference to pokergamelogic
     private PokerGameLogic gameLogic;
 
@@ -24,36 +25,25 @@ public class Blinds : MonoBehaviour
 
     //array reference
     private PlayerArray arraySingleton;
-
-    //player dict
-    private GameObject[] playerArray;
-
-    void Awake()
+    
+    private void Start()
     {
         objectRefs();
         setEvents();
-    }
-
-    private void Start()
-    {
         setBlinds();
+        subtractBlinds();
     }
 
 
     void setBlinds()
     {
-        int totalChips = 0;
-        foreach (GameObject cur in gameLogic.players)
-        {
-            Debug.LogError(cur.GetComponent<PlayerClass>().playerBuyIn);
-            totalChips += cur.GetComponent<PlayerClass>().playerBuyIn;
-        }
-
+        
+        int totalChips = getTotalChips();
         bigBlind = totalChips / gameLogic.players.Count / 20;
         smallBlind = totalChips / gameLogic.players.Count / 30;
-        
 
-        foreach (GameObject cur in playerArray)
+
+        foreach (GameObject cur in arraySingleton.getPlayerArrray())
         {
             switch (checkBlinds(cur))
             {
@@ -67,33 +57,36 @@ public class Blinds : MonoBehaviour
                     break;
             }
         }
-        
+
     }
 
 
-    private void SubtractBlinds()
+    private void subtractBlinds()
     {
         //get player buy ins and subtract that amount
         smallBlindObj.GetComponent<PlayerClass>().playerBuyIn -= smallBlind;
         bigBlindObj.GetComponent<PlayerClass>().playerBuyIn -= bigBlind;
-        
-        //move blind indicies to next player
-        nextPlayer();
     }
     
     //utils
     void objectRefs()
     {
-        stateManager = gameLogic.GetComponent<GameStateManager>();
-        gameLogic = gameObject.GetComponent<PokerGameLogic>();
+        gameLogic = GetComponent<PokerGameLogic>();
+        stateManager = GetComponent<GameStateManager>();
         arraySingleton = GameObject.Find("Singletons").GetComponent<PlayerArray>();
     }
 
     void setEvents()
     {
+<<<<<<< HEAD
         GameStateManager.onPreFlop += SubtractBlinds;
+=======
+        stateManager.onPreFlop += subtractBlinds;
+        BettingLoop.newHandLoop += newHandLoop;
+>>>>>>> refs/remotes/origin/dev
     }
 
+    //set next player as blind
     private void nextPlayer()
     {
         smallBlindPlayerIndex++;
@@ -116,4 +109,30 @@ public class Blinds : MonoBehaviour
         else
             return 0;
     }
+
+    
+    //called when new pairs of cards are dealt to the players
+    private void newHandLoop()
+    {
+        //handle all new betting loop logic here
+        
+        //call next player
+        nextPlayer();
+        //subtract blinds from their balance
+        setBlinds();
+        subtractBlinds();
+        //start new betting loop
+    }
+
+    private int getTotalChips()
+    {
+        int val = 0;
+        foreach (GameObject cur in arraySingleton.getPlayerArrray())
+        {
+            val += cur.GetComponent<PlayerClass>().playerBuyIn;
+        }
+ 
+        return val;
+    }
+
 }

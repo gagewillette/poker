@@ -7,18 +7,29 @@ public class BettingLoop : MonoBehaviour
     public Dictionary<int, int> currentPlayerBetsByIndex = new Dictionary<int, int>();
 
     public static Action newBettingLoop;
-
+    public static Action newHandLoop;
     public void Awake()
     {
+        
     }
 
     public void Start()
     {
+<<<<<<< HEAD
         newBettingLoop += startNewLoop;
+=======
+        newBettingLoop += createNewBettingLoop;
     }
 
-    private void startNewLoop()
+    private void createNewBettingLoop()
     {
+        ZeroOutDict();
+>>>>>>> refs/remotes/origin/dev
+    }
+
+    private void startNewHandLoop()
+    {
+<<<<<<< HEAD
         ZeroOutDict();
         
         
@@ -26,6 +37,9 @@ public class BettingLoop : MonoBehaviour
 
     private void startNewHandLoop()
     {
+=======
+        
+>>>>>>> refs/remotes/origin/dev
     }
 
     private void ZeroOutDict()
