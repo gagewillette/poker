@@ -8,38 +8,28 @@ public class BettingLoop : MonoBehaviour
 
     public static Action newBettingLoop;
     public static Action newHandLoop;
+
     public void Awake()
     {
-        
     }
 
     public void Start()
     {
-<<<<<<< HEAD
-        newBettingLoop += startNewLoop;
-=======
+        newBettingLoop += startNewHandLoop;
+
         newBettingLoop += createNewBettingLoop;
     }
 
     private void createNewBettingLoop()
     {
+        //called to start loop whenever players are to bet (raise, call, all in, etc.)
+        
         ZeroOutDict();
->>>>>>> refs/remotes/origin/dev
     }
-
     private void startNewHandLoop()
     {
-<<<<<<< HEAD
-        ZeroOutDict();
+        //called when new cards need to be dealt
         
-        
-    }
-
-    private void startNewHandLoop()
-    {
-=======
-        
->>>>>>> refs/remotes/origin/dev
     }
 
     private void ZeroOutDict()
@@ -49,6 +39,4 @@ public class BettingLoop : MonoBehaviour
             currentPlayerBetsByIndex[cur.Key] = 0;
         }
     }
-    
-    
 }

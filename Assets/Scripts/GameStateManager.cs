@@ -47,6 +47,7 @@ public class GameStateManager : MonoBehaviour
         {
             case GameState.Preflop:
                 // Handle preflop actions (e.g., blinds, player bets)
+                BettingLoop.newHandLoop?.Invoke();
                 onPreFlop?.Invoke();
                 BettingLoop.newBettingLoop?.Invoke();
                 break;

@@ -78,12 +78,8 @@ public class Blinds : MonoBehaviour
 
     void setEvents()
     {
-<<<<<<< HEAD
-        GameStateManager.onPreFlop += SubtractBlinds;
-=======
-        stateManager.onPreFlop += subtractBlinds;
+        GameStateManager.onPreFlop += subtractBlinds;
         BettingLoop.newHandLoop += newHandLoop;
->>>>>>> refs/remotes/origin/dev
     }
 
     //set next player as blind
