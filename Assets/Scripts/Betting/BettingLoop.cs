@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,15 +14,17 @@ public class BettingLoop : MonoBehaviour
 
     public void Start()
     {
-        newBettingLoop += createNewLoop;
-    }
-
-    private void createNewLoop()
-    {
-        ZeroOutDict();
+        newBettingLoop += startNewLoop;
     }
 
     private void startNewLoop()
+    {
+        ZeroOutDict();
+        
+        
+    }
+
+    private void startNewHandLoop()
     {
     }
 
@@ -34,4 +35,6 @@ public class BettingLoop : MonoBehaviour
             currentPlayerBetsByIndex[cur.Key] = 0;
         }
     }
+    
+    
 }

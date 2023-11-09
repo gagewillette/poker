@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,15 +13,27 @@ public class UILogic : MonoBehaviour
     private PlayerClass player;
     private RawImage cardOneImg;
     private RawImage cardTwoImg;
+    private TMP_Text bettingIndicator;
     
     private GameObject playerCapsule;
     private Renderer capsuleRend;
     
     // will be true if player wants to flop
     public bool isFlop = false;
+
+    public bool isPlayersTurn = false;
+    private bool previous;
     
     private void Start()
     {
+        foreach (var cur in GetComponentsInChildren<TMP_Text>())
+        {
+            if (cur.tag.Equals("BettingIndicator"))
+                bettingIndicator = cur;
+        }
+        Debug.Log(bettingIndicator.name);
+        
+        bettingIndicator.SetText("");
         playerCapsule = GetComponentInChildren<CapsuleCollider>().gameObject;
         capsuleRend = playerCapsule.GetComponent<Renderer>();
         
@@ -41,6 +54,7 @@ public class UILogic : MonoBehaviour
 
     private void Update()
     {
+        
         if (isFlop)
         {
             cardOneImg.texture = Resources.Load<Texture>($"BackColor_Black");
@@ -51,5 +65,16 @@ public class UILogic : MonoBehaviour
             
             isFlop = false;
         }
+
+        if (isPlayersTurn)
+        {
+            bettingIndicator.SetText("Time to bet bitch");
+        }
+        else
+        {
+            bettingIndicator.SetText("");
+        }
+
+        previous = isPlayersTurn;
     }
 }

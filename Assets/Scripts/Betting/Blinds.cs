@@ -80,8 +80,7 @@ public class Blinds : MonoBehaviour
         //move blind indicies to next player
         nextPlayer();
     }
-
-
+    
     //utils
     void objectRefs()
     {
@@ -92,7 +91,7 @@ public class Blinds : MonoBehaviour
 
     void setEvents()
     {
-        stateManager.onPreFlop += SubtractBlinds;
+        GameStateManager.onPreFlop += SubtractBlinds;
     }
 
     private void nextPlayer()

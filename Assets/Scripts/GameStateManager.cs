@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    public Action onPreFlop;
-    public Action onFlop;
-    public Action onTurn;
-    public Action onRiver;
-    public Action onShowdown;
-    public Action onGameOver;
-    public Action newBettingRound;
+    public static Action onPreFlop;
+    public static Action onFlop;
+    public static Action onTurn;
+    public static Action onRiver;
+    public static Action onShowdown;
+    public static Action onGameOver;
+    public static Action newBettingRound;
 
     public enum GameState
     {
@@ -48,21 +48,25 @@ public class GameStateManager : MonoBehaviour
             case GameState.Preflop:
                 // Handle preflop actions (e.g., blinds, player bets)
                 onPreFlop?.Invoke();
+                BettingLoop.newBettingLoop?.Invoke();
                 break;
 
             case GameState.Flop:
                 // Handle flop actions (deal community cards, player bets)
                 onFlop?.Invoke();
+                BettingLoop.newBettingLoop?.Invoke();
                 break;
 
             case GameState.Turn:
                 // Handle turn actions (deal another community card, player bets)
                 onTurn?.Invoke();
+                BettingLoop.newBettingLoop?.Invoke();
                 break;
 
             case GameState.River:
                 // Handle river actions (deal the final community card, player bets)
                 onRiver?.Invoke();
+                BettingLoop.newBettingLoop?.Invoke();
                 break;
 
             case GameState.Showdown:
