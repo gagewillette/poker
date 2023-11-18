@@ -30,7 +30,6 @@ public class Blinds : MonoBehaviour
     {
         objectRefs();
         setEvents();
-        setBlinds();
         subtractBlinds();
     }
 
@@ -63,6 +62,7 @@ public class Blinds : MonoBehaviour
 
     private void subtractBlinds()
     {
+        setBlinds();
         //get player buy ins and subtract that amount
         smallBlindObj.GetComponent<PlayerClass>().playerBuyIn -= smallBlind;
         bigBlindObj.GetComponent<PlayerClass>().playerBuyIn -= bigBlind;
